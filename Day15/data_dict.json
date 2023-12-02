@@ -1,0 +1,20 @@
+[
+  { "question": "What is your favourate language?",
+     "alternatives": ["Python","Java","C++"],
+      "answer": 1
+     },
+  { "question": "Which system is always used by Hackers?",
+    "alternatives": ["Kali","Windows","MacOS"],
+    "answer":1
+  },
+  {
+    "question": "Which programming language is best choice for game development?",
+    "alternatives": [
+      "Python",
+      "Go",
+      "Java",
+      "C++"
+    ],
+    "answer": 4
+  }
+]
