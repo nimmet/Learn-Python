@@ -1,10 +1,5 @@
 Python
-German
-Go
 Java
-C++
-Go To Oslo
-Visit Berlin
-Llearn Atilla
-
-Clean The House
+Visit Oslo
+Cyber Security
+Lerne Deutsch
