@@ -2,4 +2,3 @@ Python
 Java
 Visit Oslo
 Cyber Security
-Lerne Deutsch
