@@ -9,7 +9,6 @@ if not os.path.exists("todos.txt"):
 
 
 sg.theme("LightBrown")
-
 label = sg.Text("Type in a to-do: ")
 input_box = sg.InputText(tooltip="Enter a to-do", key="todo")
 add_button = sg.Button("Add")
