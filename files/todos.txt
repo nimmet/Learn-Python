@@ -1,8 +1,2 @@
-Python
 Java
-Lerne Deutsch
-Do exercise
-google
-udemy
-vb
-bing
+python

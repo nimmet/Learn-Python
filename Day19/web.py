@@ -15,8 +15,14 @@ st.write("You can make any web app here")
 
 todos = get_todos()
 
-for todo in todos:
-    st.checkbox(todo,key=todo)
+for index,todo in enumerate(todos):
+    checkbox = st.checkbox(todo,key=todo)
+    if checkbox:
+        todos.pop(index)
+        write_todos(todos)
+        del st.session_state[todo]
+        st.experimental_rerun()
+
 
 
 st.text_input(label="Enter a todo: ", placeholder="Add a todo", on_change=add_todo, key="new_todo")
