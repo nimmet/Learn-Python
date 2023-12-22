@@ -8,7 +8,6 @@ col1, col2 = st.columns(2)
 with col1:
     st.image("Web-App/images/uyghur.png")
 
-
 with col2:
     st.title("Uyghur Man")
     content = """
@@ -16,3 +15,8 @@ with col2:
      ein Python Lerneren. Ich mochte ein Python Programmierer werden.
     """
     st.info(content)
+
+st.subheader("I have some plans about my future career")
+st.image("Web-App/images/1.png")
+st.info("Ich wollte deutsch lernen aber hatte ich keine mehr Zeit. Jetzt habe ich Zeit Deutsch zu lernen.")
+
