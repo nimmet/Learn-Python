@@ -1,5 +1,5 @@
 import streamlit as st
-
+import pandas as pd
 
 st.set_page_config(layout="wide")
 
@@ -16,7 +16,24 @@ with col2:
     """
     st.info(content)
 
-st.subheader("I have some plans about my future career")
-st.image("Web-App/images/1.png")
-st.info("Ich wollte deutsch lernen aber hatte ich keine mehr Zeit. Jetzt habe ich Zeit Deutsch zu lernen.")
+# st.subheader("I have some plans about my future career")
+# st.image("Web-App/images/1.png")
 
+content1 = """
+Below you find out some of the apps I have built in Python. Feel free to contact me!
+"""
+st.write(content1)
+
+
+col3, col4 = st.columns(2)
+
+df = pd.read_csv("Web-App/data.csv", sep=";")
+
+with col3:
+  for index, row in df[:10].iterrows():
+      st.header(row["title"])
+
+
+with col4:
+    for index, row in df[10:].iterrows():
+        st.header(row["title"])
