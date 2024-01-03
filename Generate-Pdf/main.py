@@ -10,8 +10,8 @@ df = pandas.read_csv("topics.csv")
 pdf = FPDF(orientation="P", unit="mm", format="A4")
 
 for index, row in df.iterrows():
-
     pdf.add_page()
+
 
     pdf.set_font(family="Times",style="B", size=24)
     pdf.set_text_color(100,100,100)
@@ -21,5 +21,8 @@ for index, row in df.iterrows():
     pdf.line(10,34,200,34)
     pdf.cell(w=0,h=12, txt=str(row["Pages"]), align="L", ln=1)
     pdf.line(10,46,200,46)
+
+    for page in range(row["Pages"]-1):
+        pdf.add_page()
 
 pdf.output("output.pdf")
