@@ -2,6 +2,7 @@
 import pandas as pd
 import glob
 from fpdf import FPDF
+from pathlib import Path
 
 filepaths = glob.glob("invoices/*.xlsx")
 
@@ -17,22 +18,22 @@ for filepath in filepaths:
 
     for index,row in df.iterrows():
         pdf.add_page()
-
-        pdf.set_font(family="Times", style="B", size=14)
+        filename = Path(filepath).stem
+        invoice_nr = filename.split("-")[0]
+        pdf.set_font(family="Times", style="B", size=16)
         pdf.set_text_color(100, 100, 100)
-        pdf.cell(w=0, h=12,
-                 txt="product_id"+" "+"product_name"+" "+"amount_purchased"+" "+"price_per_unit"+" "+"total_price",
-                 align="L", ln=1, border=1)
-        pdf.cell(w=0, h=12,
-                 txt=str(row["product_id"])+"\t"+
-                 str(row["product_name"])+"\t"+str(row["amount_purchased"])+"\t"+str(row["price_per_unit"])+"\t"+
-                 str(row["total_price"]),
-                 align="L", ln=1, border=1)
-        # pdf.cell(w=0, h=12, txt=str(row["amount_purchased"]), align="L", ln=1, border=1)
-        # pdf.cell(w=0, h=12, txt=str(row["price_per_unit"]), align="L", ln=1, border=1)
-        # pdf.cell(w=0, h=12, txt=str(row["total_price"]), align="L", ln=1, border=1)
+        pdf.cell(w=50, h=8,
+                 txt=f"Invoice nr. {invoice_nr}")
+        # pdf.cell(w=0, h=12,
+        #          txt=str(row["product_id"])+"\t"+
+        #          str(row["product_name"])+"\t"+str(row["amount_purchased"])+"\t"+str(row["price_per_unit"])+"\t"+
+        #          str(row["total_price"]),
+        #          align="L", ln=1, border=1)
+        # # pdf.cell(w=0, h=12, txt=str(row["amount_purchased"]), align="L", ln=1, border=1)
+        # # pdf.cell(w=0, h=12, txt=str(row["price_per_unit"]), align="L", ln=1, border=1)
+        # # pdf.cell(w=0, h=12, txt=str(row["total_price"]), align="L", ln=1, border=1)
         pdf.line(10, 22, 200, 22)
 
 
-        pdf.output(f"{filepath}.pdf")
+        pdf.output(f"pdfs/{filename}.pdf")
 
