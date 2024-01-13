@@ -26,13 +26,16 @@ for filepath in filepaths:
         pdf.set_font(family="Times", style="B", size=16)
         # pdf.set_text_color(100, 100, 100)
         pdf.cell(w=50, h=8,
-                 txt=f"{filename.capitalize()}")
+                 txt=f"{filename.capitalize()}", ln=1)
+
+
 
         yy=25
         for c in content:
             pdf.set_font(family="Times", style="", size=12)
-            pdf.text(txt=c.strip(),y=yy,x=10)
-            yy += 10
+            # pdf.text(txt=c.strip(),y=yy,x=10)
+            # yy += 10
+            pdf.multi_cell(w=0, h=6, txt=c)
 
         # pdf.cell(w=0, h=12,
         #          txt=str(row["product_id"])+"\t"+
